@@ -1,79 +1,93 @@
-const calcBtnNumbers = document.querySelectorAll(".btnNumber");
-const calcBtnOperators = document.querySelectorAll(".btnOperator");
-const calcBtnEquals = document.getElementById("equals");
-const calcBtnPlus = document.getElementById("plus");
-const calcBtnMinus = document.getElementById("minus");
-const calcBtnMultiply = document.getElementById("multiply");
-const calcBtnDivide = document.getElementById("divide");
-
-var calcDisplayCurrent = document.querySelector("p#calcDisplayCurrentVal");
-var calcDisplayLast = document.querySelector("p#calcDisplayLastVal")
-var val1 = ""
-var val2 = ""
+var newInput = document.querySelector("p#calcDisplayCurrentNumber");
+var lastInput = document.querySelector("p#calcDisplayLastNumber")
+var inputVal = ""
+var inputValInt = 0
+var sumVal = 0
 var tempVal = 0
-var currentVal = ""
+var operator = "+";
 
-calcBtnPlus.addEventListener("click", add);
-calcBtnMinus.addEventListener("click", subtract);
-calcBtnMultiply.addEventListener("click", multiply);
-calcBtnDivide.addEventListener("click", divide);
+function currentOperator(){
+    
+}
 
+function nextOperator(){
 
-document.querySelectorAll('.btnNumber').forEach(item => {
-    item.addEventListener('click', event => {
-        let valStr = item.textContent;
-        val1 = parseInt(valStr);
-        val2 = `${val2}${val1}`
-        currentVal = parseInt(val2);
-        calcDisplayCurrent.textContent = currentVal;
+}
+
+document.querySelectorAll('.btnOperator').forEach(item => {
+    item.addEventListener("click", event => {
+        
+        if (inputVal === "" || inputVal === 0) {
+            return
+        }
+        // if (lastInput.textContent == 0) {
+        //     lastInput.textContent = `${inputVal} ${operator} `;
+        // } else {
+        //     lastInput.textContent += `${inputVal} ${operator} `
+        // }
+        newInput.textContent = inputVal;
+        inputValInt = parseInt(inputVal);
+        operate(operator, sumVal, inputVal)
+        lastInput.textContent = sumVal;
+        operator = item.textContent;
     })
 })
 
+document.querySelectorAll(".btnNumber").forEach(item => {
+    item.addEventListener("click", event => {
+        var inputNumber = item.textContent;
+        inputVal += inputNumber;
+        newInput.textContent = inputVal;
+    })
+}
+)
+
+function operate(operator, sumVal, inputValInt) {
+    if (operator === "+") {
+        add();
+    } else if (operator === "-") {
+        subtract();
+    } else if (operator === "*") {
+        multiply();
+    } else if (operator === "/") {
+        divide();
+    } else if (operator === "=") {
+        equals();
+    } else if (operator === "C") {
+        resetVal();
+    }
+}
+
 
 function add() {
-    var result = currentVal + tempVal
-    tempVal = result
-    resetVal()
-    calcDisplayLast.textContent = tempVal;
-    return
-};
-
-function resetVal() {
-    val1 = "";
-    val2 = "";
-    currentVal = 0;
-    calcDisplayCurrent.textContent = 0;
-    calcDisplayLast.textContent = parseInt(currentVal);
+    var result = sumVal + inputValInt;
+    sumVal = result;
+    inputVal = "";
+    newInput.textContent = inputVal;
 }
 
 
 function subtract() {
-    var result = tempVal - currentVal;
-    tempVal = result;
-    resetVal();
-    calcDisplayLast.textContent = tempVal;
+    var result = sumVal - inputValInt;
+    sumVal = result;
+    inputVal = "";
+    newInput.textContent = inputVal;
 };
 
 function multiply() {
-    var result = tempVal * currentVal;
-    tempVal = result;
-    resetVal();
-    calcDisplayLast.textContent = tempVal;
-};
+    var result = sumVal * inputValInt;
+    sumVal = result;
+    inputVal = "";
+    newInput.textContent = inputVal;
+}
 
 function divide() {
-    if(currentVal == 0){
-        console.log("ploep")
-        calcDisplayLast.textContent = tempVal;
-        return
-    }else{
-    var result = tempVal / currentVal;
-    tempVal = result;
-    resetVal();
-    calcDisplayLast.textContent = tempVal;
-    }
-};
+    var result = sumVal / inputValInt;
+    sumVal = result;
+    inputVal = "";
+    newInput.textContent = inputVal;
+}
 
-function equals(){
-
+function equals() {
+    console.log(sumVal)
 }
