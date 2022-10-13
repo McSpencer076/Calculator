@@ -1,34 +1,30 @@
 var newInput = document.querySelector("p#calcDisplayCurrentNumber");
 var lastInput = document.querySelector("p#calcDisplayLastNumber")
+var lastOperation = document.getElementById("calcDisplayLastOperation")
+var resetButton = document.getElementById("reset")
+
 var inputVal = ""
 var inputValInt = 0
 var sumVal = 0
 var tempVal = 0
 var operator = "+";
 
-function currentOperator(){
-    
-}
-
-function nextOperator(){
-
-}
+resetButton.addEventListener("click", () => {
+    inputVal = "";
+    newInput.textContent = inputVal;
+    sumVal = 0
+    lastInput.textContent = sumVal;
+});
 
 document.querySelectorAll('.btnOperator').forEach(item => {
     item.addEventListener("click", event => {
-        
         if (inputVal === "" || inputVal === 0) {
             return
         }
-        // if (lastInput.textContent == 0) {
-        //     lastInput.textContent = `${inputVal} ${operator} `;
-        // } else {
-        //     lastInput.textContent += `${inputVal} ${operator} `
-        // }
         newInput.textContent = inputVal;
         inputValInt = parseInt(inputVal);
         operate(operator, sumVal, inputVal)
-        lastInput.textContent = sumVal;
+        lastInput.textContent = sumVal
         operator = item.textContent;
     })
 })
@@ -51,16 +47,13 @@ function operate(operator, sumVal, inputValInt) {
         multiply();
     } else if (operator === "/") {
         divide();
-    } else if (operator === "=") {
-        equals();
-    } else if (operator === "C") {
-        resetVal();
     }
 }
 
 
 function add() {
     var result = sumVal + inputValInt;
+    lastOperation.textContent = `${sumVal} ${operator} ${inputVal}`
     sumVal = result;
     inputVal = "";
     newInput.textContent = inputVal;
@@ -69,6 +62,7 @@ function add() {
 
 function subtract() {
     var result = sumVal - inputValInt;
+    lastOperation.textContent = `${sumVal} ${operator} ${inputVal}`
     sumVal = result;
     inputVal = "";
     newInput.textContent = inputVal;
@@ -76,6 +70,7 @@ function subtract() {
 
 function multiply() {
     var result = sumVal * inputValInt;
+    lastOperation.textContent = `${sumVal} ${operator} ${inputVal}`
     sumVal = result;
     inputVal = "";
     newInput.textContent = inputVal;
@@ -83,11 +78,23 @@ function multiply() {
 
 function divide() {
     var result = sumVal / inputValInt;
+    lastOperation.textContent = `${sumVal} ${operator} ${inputVal}`
     sumVal = result;
     inputVal = "";
     newInput.textContent = inputVal;
 }
 
-function equals() {
-    console.log(sumVal)
+function resetVal() {
+    inputVal = "";
+    lastOperation.textContent = ""
+    newInput.textContent = inputVal;
+    sumVal = 0
+    lastInput.textContent = sumVal;
+}
+
+function changeDisplayValue() {
+    lastOperation.textContent = `${sumVal} ${operator} ${inputVal}`
+    sumVal = result;
+    inputVal = "";
+    newInput.textContent = inputVal;
 }

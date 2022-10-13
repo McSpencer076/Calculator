@@ -7,37 +7,52 @@
 
 <body>
     <script src="functions.js" defer></script>
+    <div class="header">
+        <h1>CALCULATOR</h1>
+    </div>
     <div class="framework">
-        <div class="calcDisplay">
-            <p id="calcDisplayLastNumber">0</p>
-            <p id="calcDisplayCurrentNumber"></p>
-        </div>
-        <div class="calculatorBody">
+        <div class="calculator">
+            <div class="calcDisplay">
+                <div class="calcDisplayRight">
+                    <p id="calcDisplayLastNumber">0</p>
+                    <p id="calcDisplayCurrentNumber"></p>
+                </div>
+                <div id="calcDisplayleft">
+                    <p id="calcDisplayLastOperation"></p>
+                </div>
+            </div>
+            <div class="calculatorBody">
                 <button class="btnNumber" id="one">1</button>
                 <button class="btnNumber" id="two">2</button>
                 <button class="btnNumber" id="three">3</button>
+                <button class="btnOperator" id="plus">+</button>
+                
                 <button class="btnNumber" id="four">4</button>
                 <button class="btnNumber" id="five">5</button>
                 <button class="btnNumber" id="six">6</button>
+                <button class="btnOperator" id="minus">-</button>
+
                 <button class="btnNumber" id="seven">7</button>
                 <button class="btnNumber" id="eight">8</button>
                 <button class="btnNumber" id="nine">9</button>
+                <button class="btnOperator" id="multiply">x</button>
+
+                <button class="btnOperator" id="reset">C</button>
                 <button class="btnNumber" id="zero">0</button>
-        </div>
-        <div class="calcButtonOperators">
-            <button class="btnOperator" id="plus">+</button>
-            <button class="btnOperator" id="minus">-</button>
-            <button class="btnOperator" id="multiply">*</button>
-            <button class="btnOperator" id="divide">/</button>
-            <button class="btnOperator" id="equals">=</button>
-            <button class="btnOperator" id="reset">C</button>
-            </button>
+                <button class="btnOperator" id="equals">=</button>
+                <button class="btnOperator" id="divide">/</button>
+
+
+
+                </button>
+            </div>
         </div>
     </div>
     <div class="footer">
         <p id="footerText">A "The Odin Project" Project.<a href="https://github.com/McSpencer076" target="_blank"> ©
                 McSpencer076 </a></p>
     </div>
+
 
 </body>
 
