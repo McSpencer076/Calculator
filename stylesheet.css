@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "Digital-7";
-    src: url(/Users/merijn/TheOdinProject/repos/Calculator/FONTS/Digital-7);
+    src: url(/Users/merijn/TheOdinProject/repos/Calculator/FONTS/digital-7);
 }
 
 .btnNumber {
@@ -33,8 +33,8 @@ button:hover {
 
 .btnOperator#equals {
     background-color: rgb(0, 129, 28);
-    grid-area: 5 / 1 / 6 / 5;
-    width: 97%;
+    grid-area: 5 / 1 / 6 / 4;
+    width: 96%;
 }
 
 .calculator {
@@ -75,7 +75,6 @@ button:hover {
     margin: 10px;
 
 }
-
 
 body{
     background-color: rgb(225, 225, 225);

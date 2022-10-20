@@ -4,6 +4,7 @@ var lastOperation = document.getElementById("calcDisplayLastOperation")
 var resetButton = document.getElementById("reset")
 var currentOperator = document.getElementById("calcDisplayCurrentOperator")
 var backspace = document.getElementById("backspace")
+var decimal = document.getElementById("decimal")
 
 var inputVal = ""
 var inputValInt = 0
@@ -11,6 +12,17 @@ var sumVal = 0
 var tempVal = 0
 var operator = "+";
 var inputNumber = ""
+
+decimal.addEventListener("click", () => {
+    var tempArray = inputVal.split("")
+    if(!tempArray.includes(".")){
+        inputVal += "."
+        tempArrayToInt = parseInt(inputVal);
+    }
+    if(tempArray.includes(".")){
+        return
+    }
+})
 
 backspace.addEventListener("click", () => {
     var inputValStr = inputVal.toString();
@@ -38,13 +50,13 @@ resetButton.addEventListener("click", () => {
 
 document.querySelectorAll('.btnOperator').forEach(item => {
     item.addEventListener("click", event => {
-        if (inputVal === "" || inputVal === 0) {
+        if (inputVal === "") {
             operator = item.textContent
             currentOperator.textContent = operator;
             return
         }
         newInput.textContent = inputVal;
-        inputValInt = parseInt(inputVal);
+        inputValInt = parseFloat(inputVal);
         operate(operator, sumVal, inputVal)
         lastInput.textContent = sumVal
         operator = item.textContent;
