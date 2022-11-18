@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
 
-
+body{
+    background-color: rgb(255, 251, 240);
+}
 
 button {
     height: 60px;
@@ -8,6 +10,7 @@ button {
     border: 2px solid black;
     border-radius: 10px;
     font-family: 'Rajdhani', sans-serif;
+    background-color: whitesmoke;
 }
 
 button:hover{
@@ -30,16 +33,17 @@ button:hover{
     border: 3px solid black;
     border-radius: 15px;
     position: absolute;
-    top: 53%;
+    top: 56%;
     left: 50%;
     transform: translate(-50%, -50%);
     min-height: fit-content;
     width: 400px;
-    background-color: darkgrey;
+    background-color: rgb(186, 187, 189);
+    box-shadow: 3px 3px 1px 1px lightgrey;
 }
 
 .calcDisplay {
-    background-color: lightgrey;
+    background-color: whitesmoke;
     margin: 12px;
     margin-top: 15px;
     width: 370px;
@@ -62,12 +66,14 @@ button:hover{
 #top{
     height: 50%;
     overflow: auto;
+    overflow-y:hidden;
     white-space: nowrap;
 }
 
 #bottom{
     height: 50%;
     overflow: auto;
+    overflow-y:hidden
 }
 
 .calculatorBody {
@@ -79,11 +85,12 @@ button:hover{
 }
 .header {
     position: absolute;
-    top: 1%;
+    top: 0;
     width: 100%;
     text-align: center;
     vertical-align: top;
-
+    background-color: rgb(219, 223, 226);
+    border-bottom: 2px solid grey;
 }
 
 .footer {
@@ -91,6 +98,8 @@ button:hover{
     width: 100%;
     bottom: 0;
     text-align: center;
+    background-color: rgb(219, 223, 226);
+    border-top: 2px solid grey;
 }
 
 /* fonts */
@@ -104,10 +113,18 @@ p#footer{
     margin: 10px;
     font-size: 12;
     font-family: 'Rajdhani', sans-serif;
+    color: grey;
+}
+
+a{
+    color:grey;
+    text-decoration: none;
 }
 
 h1 {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 96;
+    font-size: 100;
     display: inline;
+    color: rgb(34, 32, 32);
+    text-shadow: 2px 2px darkgrey;
 }
