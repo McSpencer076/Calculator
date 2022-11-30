@@ -6,6 +6,9 @@ var resetButton = document.getElementById("reset")
 var currentOperator = document.getElementById("calcDisplayCurrentOperator")
 var backspace = document.getElementById("backspace")
 var decimal = document.getElementById("decimal")
+var body = document.querySelector("body");
+var header = document.querySelector(".header");
+var footer = document.querySelector(".footer");
 
 /* variables for later use */
 var inputVal = ""
@@ -105,7 +108,7 @@ function subtract() {
     lastOperation.textContent = `${sumVal} ${operator} ${inputVal}`
     sumVal = Math.round(result * 1000) / 1000;
     inputVal = "";
-    newInput.textContent = inputVal;
+    newInput.textContent = inputVal
 }
 
 function multiply() {
@@ -123,3 +126,18 @@ function divide() {
     inputVal = "";
     newInput.textContent = inputVal;
 }
+
+
+var headerHeight = header.offsetHeight;
+var footerHeight = footer.offsetHeight;
+
+window.addEventListener("resize", () => {
+    var bodyHeight = top.innerHeight;
+    if(bodyHeight <= 640){
+        header.remove();
+        footer.remove();
+    }else{
+        body.appendChild(header);
+        body.appendChild(footer);
+    }    }
+    );
