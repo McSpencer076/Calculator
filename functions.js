@@ -10,10 +10,14 @@ var body = document.querySelector("body");
 var header = document.querySelector(".header");
 var footer = document.querySelector(".footer");
 
+/* variables for design */
+var headerHeight = header.offsetHeight;
+var footerHeight = footer.offsetHeight;
+
 /* variables for later use */
 var inputVal = ""
 var inputValInt = 0
-var sumVal = 0
+var sumVal = ""
 var operator = "+";
 var inputNumber = ""
 
@@ -43,6 +47,19 @@ document.querySelectorAll(".btnNumber").forEach(item => {
     })
 }
 )
+
+/* eventlistener for design */ 
+window.addEventListener("resize", () => {
+    var bodyHeight = top.innerHeight;
+    if(bodyHeight <= 640){
+        header.remove();
+        footer.remove();
+    }else{
+        body.appendChild(header);
+        body.appendChild(footer);
+    }    }
+    );
+
 
 /* eventlisteners for the 'special' buttons */
 backspace.addEventListener("click", () => {
@@ -74,7 +91,7 @@ decimal.addEventListener("click", () => {
 resetButton.addEventListener("click", () => {
     inputVal = "";
     newInput.textContent = inputVal;
-    sumVal = 0;
+    sumVal = "";
     lastInput.textContent = sumVal;
     lastOperation.textContent = "";
     operator = "+"
@@ -97,47 +114,32 @@ function operate(operator, sumVal, inputValInt) {
 
 function add() {
     var result = sumVal + inputValInt;
-    lastOperation.textContent = `${sumVal} ${operator} ${inputVal}`
-    sumVal = Math.round(result * 1000) / 1000;
-    inputVal = "";
-    newInput.textContent = inputVal;
+    displayAnswer(result);
 }
 
 function subtract() {
     var result = sumVal - inputValInt;
-    lastOperation.textContent = `${sumVal} ${operator} ${inputVal}`
-    sumVal = Math.round(result * 1000) / 1000;
-    inputVal = "";
-    newInput.textContent = inputVal
+    displayAnswer(result)
 }
 
 function multiply() {
     var result = sumVal * inputValInt;
-    lastOperation.textContent = `${sumVal} ${operator} ${inputVal}`
-    sumVal = Math.round(result * 1000) / 1000;
-    inputVal = "";
-    newInput.textContent = inputVal;
+    displayAnswer(result)
 }
 
 function divide() {
     var result = sumVal / inputValInt;
-    lastOperation.textContent = `${sumVal} ${operator} ${inputVal}`
-    sumVal = Math.round(result * 1000) / 1000;
-    inputVal = "";
-    newInput.textContent = inputVal;
+    displayAnswer(result)
 }
 
+/* function to display answer */
 
-var headerHeight = header.offsetHeight;
-var footerHeight = footer.offsetHeight;
-
-window.addEventListener("resize", () => {
-    var bodyHeight = top.innerHeight;
-    if(bodyHeight <= 640){
-        header.remove();
-        footer.remove();
-    }else{
-        body.appendChild(header);
-        body.appendChild(footer);
-    }    }
-    );
+function displayAnswer(result){
+    if(sumVal === ""){
+        lastOperation.textContent = `${inputVal}`
+        }else{
+        lastOperation.textContent = `${sumVal} ${operator} ${inputVal}`}
+        sumVal = Math.round(result * 1000) / 1000;
+        inputVal = "";
+        newInput.textContent = inputVal;
+}
