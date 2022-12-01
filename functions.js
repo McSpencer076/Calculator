@@ -51,13 +51,18 @@ document.querySelectorAll(".btnNumber").forEach(item => {
 /* eventlistener for design */ 
 window.addEventListener("resize", () => {
     var bodyHeight = top.innerHeight;
-    if(bodyHeight <= 640){
-        header.remove();
-        footer.remove();
-    }else{
-        body.appendChild(header);
-        body.appendChild(footer);
-    }    }
+    if(bodyHeight < 640){
+        header.classList.add("fadeOutHeader")
+        footer.classList.add("fadeOutFooter")
+        header.classList.remove("fadeInHeader")
+        footer.classList.remove("fadeInFooter")
+    }
+    if(bodyHeight > 641) {
+        header.classList.add("fadeInHeader")
+        footer.classList.add("fadeInFooter")
+        header.classList.remove("fadeOutHeader")
+        footer.classList.remove("fadeOutFooter")
+    }}
     );
 
 
