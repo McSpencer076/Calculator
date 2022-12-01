@@ -14,7 +14,7 @@ var footer = document.querySelector(".footer");
 var headerHeight = header.offsetHeight;
 var footerHeight = footer.offsetHeight;
 
-/* variables for later use */
+/* variables for operation use */
 var inputVal = ""
 var inputValInt = 0
 var sumVal = ""
