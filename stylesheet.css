@@ -132,40 +132,43 @@ button:hover {
     from {
         transform: translate(0, 0)
     }
-    to{
+
+    to {
         transform: translate(0, -12%)
     }
 }
 
 @keyframes moveFooter {
-    from { 
+    from {
         transform: translate(0, 0);
     }
+
     to {
         transform: translate(0, 30px)
     }
 }
 
-.fadeInHeader{
+.fadeInHeader {
     animation-name: fadeIn;
     animation-duration: 0.6s;
     animation-fill-mode: forwards;
 }
-.fadeOutHeader{
+
+.fadeOutHeader {
     animation-name: fadeOut, moveHeader;
-    animation-duration: 0.6s, 0.7s;
+    animation-duration: 0.3s, 0.7s;
     animation-fill-mode: forwards;
 }
 
-.fadeInFooter{
+.fadeInFooter {
     animation-name: fadeIn;
     animation-duration: 0.6s;
     animation-fill-mode: forwards;
 }
 
-.fadeOutFooter{
+.fadeOutFooter {
     animation-name: fadeOut, moveFooter;
-    animation-duration: 0.6s, 0.7s;
+    animation-duration: 0.3s, 0.7s;
     animation-fill-mode: forwards;
 }
 

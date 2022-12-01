@@ -48,22 +48,23 @@ document.querySelectorAll(".btnNumber").forEach(item => {
 }
 )
 
-/* eventlistener for design */ 
+/* eventlistener for design */
 window.addEventListener("resize", () => {
     var bodyHeight = top.innerHeight;
-    if(bodyHeight < 640){
+    if (bodyHeight < 640) {
         header.classList.add("fadeOutHeader")
         footer.classList.add("fadeOutFooter")
         header.classList.remove("fadeInHeader")
         footer.classList.remove("fadeInFooter")
     }
-    if(bodyHeight > 641) {
+    if (bodyHeight > 641) {
         header.classList.add("fadeInHeader")
         footer.classList.add("fadeInFooter")
         header.classList.remove("fadeOutHeader")
         footer.classList.remove("fadeOutFooter")
-    }}
-    );
+    }
+}
+);
 
 
 /* eventlisteners for the 'special' buttons */
@@ -139,12 +140,13 @@ function divide() {
 
 /* function to display answer */
 
-function displayAnswer(result){
-    if(sumVal === ""){
+function displayAnswer(result) {
+    if (sumVal === "") {
         lastOperation.textContent = `${inputVal}`
-        }else{
-        lastOperation.textContent = `${sumVal} ${operator} ${inputVal}`}
-        sumVal = Math.round(result * 1000) / 1000;
-        inputVal = "";
-        newInput.textContent = inputVal;
+    } else {
+        lastOperation.textContent = `${sumVal} ${operator} ${inputVal}`
+    }
+    sumVal = Math.round(result * 1000) / 1000;
+    inputVal = "";
+    newInput.textContent = inputVal;
 }
