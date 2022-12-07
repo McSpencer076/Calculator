@@ -21,7 +21,7 @@ var sumVal = ""
 var operator = "+";
 var inputNumber = ""
 
-/* execution of the number buttons */
+/* execution of the operator buttons */
 document.querySelectorAll('.btnOperator').forEach(item => {
     item.addEventListener("click", event => {
         if (inputVal === "") {
@@ -38,12 +38,15 @@ document.querySelectorAll('.btnOperator').forEach(item => {
     })
 })
 
-/* execution of the operator buttons */
+
+/* execution of the number buttons */
 document.querySelectorAll(".btnNumber").forEach(item => {
     item.addEventListener("click", event => {
         inputNumber = item.textContent;
-        inputVal += inputNumber;
-        newInput.textContent = inputVal;
+        if (inputVal !== "" || inputNumber !== "0") {
+            inputVal += inputNumber;
+            newInput.textContent = inputVal;
+        }
     })
 }
 )
@@ -68,20 +71,16 @@ window.addEventListener("resize", () => {
 
 
 /* eventlisteners for the 'special' buttons */
+
 backspace.addEventListener("click", () => {
-    var inputValStr = inputVal.toString();
-    var tempArray = inputValStr.split("");
-    if (tempArray.length > 1) {
-        var tempArrayRemove = tempArray.splice(-1, 1);
-        var tempArrayToInt = parseFloat(tempArray.join(""));
-        inputVal = tempArrayToInt;
-        newInput.textContent = inputVal;
+    if (inputVal.length > 1) {
+        inputVal = inputVal.substring(0, inputVal.length - 1);
     } else {
-        inputVal = ""
-        newInput.textContent = inputVal;
-        return
+        inputVal = "";
     }
+    newInput.textContent = inputVal;
 });
+
 
 decimal.addEventListener("click", () => {
     var tempArray = inputVal.split("")
@@ -139,14 +138,12 @@ function divide() {
 }
 
 /* function to display answer */
-
 function displayAnswer(result) {
     if (sumVal === "") {
-        lastOperation.textContent = `${inputVal}`
+        lastOperation.textContent = ""
     } else {
         lastOperation.textContent = `${sumVal} ${operator} ${inputVal}`
     }
     sumVal = Math.round(result * 1000) / 1000;
-    inputVal = "";
-    newInput.textContent = inputVal;
+    newInput.textContent = inputVal = "";
 }

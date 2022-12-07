@@ -94,6 +94,7 @@ button:hover {
     transition: translate 1s;
 }
 
+
 .footer {
     position: absolute;
     width: 100%;
@@ -194,8 +195,9 @@ a {
 
 h1 {
     font-family: 'Rajdhani', sans-serif;
-    font-size: 11vh;
-    display: inline;
+    font-size: 12vh;
+    transform: translate(0, -60%);
+    /* display: inline; */
     color: rgba(11, 10, 10, .95);
     text-shadow: 2px 2px darkgrey;
 }
