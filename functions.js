@@ -24,7 +24,7 @@ var inputNumber = ""
 /* execution of the operator buttons */
 document.querySelectorAll('.btnOperator').forEach(item => {
     item.addEventListener("click", event => {
-        if (inputVal === "") {
+        if (inputVal === "" || inputVal === ".") {
             operator = item.textContent
             currentOperator.textContent = operator;
             return
@@ -54,24 +54,15 @@ document.querySelectorAll(".btnNumber").forEach(item => {
 /* eventlistener for design */
 window.addEventListener("resize", () => {
     var bodyHeight = top.innerHeight;
-    if (bodyHeight < 640) {
-        header.classList.add("fadeOutHeader")
-        footer.classList.add("fadeOutFooter")
-        header.classList.remove("fadeInHeader")
-        footer.classList.remove("fadeInFooter")
-    }
-    if (bodyHeight > 641) {
-        header.classList.add("fadeInHeader")
-        footer.classList.add("fadeInFooter")
-        header.classList.remove("fadeOutHeader")
-        footer.classList.remove("fadeOutFooter")
-    }
-}
-);
+    var fadeOut = bodyHeight < 640;
+    header.classList.toggle("fadeOutHeader", fadeOut)
+    footer.classList.toggle("fadeOutFooter", fadeOut)
+    header.classList.toggle("fadeInHeader", !fadeOut)
+    footer.classList.toggle("fadeInFooter", !fadeOut)
+});
 
 
 /* eventlisteners for the 'special' buttons */
-
 backspace.addEventListener("click", () => {
     if (inputVal.length > 1) {
         inputVal = inputVal.substring(0, inputVal.length - 1);
@@ -81,17 +72,16 @@ backspace.addEventListener("click", () => {
     newInput.textContent = inputVal;
 });
 
-
 decimal.addEventListener("click", () => {
-    var tempArray = inputVal.split("")
-    if (!tempArray.includes(".")) {
-        inputVal += "."
+    var tempArray = inputVal.split("");
+    var hasDecimal = tempArray.includes(".");
+
+    if (!hasDecimal) {
+        inputVal += ".";
         tempArrayToInt = parseInt(inputVal);
+        newInput.textContent = inputVal;
     }
-    if (tempArray.includes(".")) {
-        return
-    }
-})
+});
 
 resetButton.addEventListener("click", () => {
     inputVal = "";
