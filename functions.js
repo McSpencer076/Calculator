@@ -43,7 +43,7 @@ document.querySelectorAll('.btnOperator').forEach(item => {
 document.querySelectorAll(".btnNumber").forEach(item => {
     item.addEventListener("click", event => {
         inputNumber = item.textContent;
-        if (inputVal !== "" || inputNumber !== "0") {
+        if (inputVal !== "0" || inputNumber !== "0") {
             inputVal += inputNumber;
             newInput.textContent = inputVal;
         }
