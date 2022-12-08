@@ -208,7 +208,7 @@ h1 {
 
 
 /* Weird extra's */
-.moving-image {
+.movingImage {
     position: absolute;
     overflow: hidden;
     animation: move-image 3s linear;

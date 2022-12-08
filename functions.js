@@ -109,6 +109,12 @@ function operate(operator, sumVal, inputValInt) {
 
 function add() {
     var result = sumVal + inputValInt;
+
+    //check if lol + lol = hihi
+    if (sumVal == "707" && inputValInt == "707") {
+        console.log("een Tjallinkje")
+    }
+
     displayAnswer(result);
 }
 
@@ -123,11 +129,14 @@ function multiply() {
 }
 
 function divide() {
-    if (inputVal === "0"){
+
+    //Check if divided by 0
+    if (inputVal === "0") {
         infinityBeyond();
         lastOperation.textContent = "INFINITY"
         return;
     }
+
     var result = sumVal / inputValInt;
     displayAnswer(result);
 }
@@ -145,16 +154,12 @@ function displayAnswer(result) {
 }
 
 /* weird extra functions for fun */
-
-function infinityBeyond(){
-            // Show an image moving from the center-left bottom to the center-right top
-            const imageElement = document.createElement("img");
-            imageElement.src = "IMAGES/BuzzText.png";
-            imageElement.classList.add("moving-image");
-            document.body.appendChild(imageElement);
-    
-            // Schedule the removal of the image from the page after 10 seconds
-            setTimeout(() => {
-                imageElement.remove();
-            }, 2900);
+function infinityBeyond() {
+    const imageElement = document.createElement("img");
+    imageElement.src = "IMAGES/BuzzText.png";
+    imageElement.classList.add("movingImage");
+    body.appendChild(imageElement);
+    setTimeout(() => {
+        imageElement.remove();
+    }, 2900);
 }
