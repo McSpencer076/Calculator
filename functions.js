@@ -148,7 +148,7 @@ function displayAnswer(result) {
 function infinityBeyond(){
             // Show an image moving from the center-left bottom to the center-right top
             const imageElement = document.createElement("img");
-            imageElement.src = "IMAGES/BUZZ.png";
+            imageElement.src = "IMAGES/BuzzText.png";
             imageElement.classList.add("moving-image");
             document.body.appendChild(imageElement);
     

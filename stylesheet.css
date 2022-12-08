@@ -217,7 +217,7 @@ h1 {
   @keyframes move-image {
     0% {
       bottom: -40%;
-      left: 75%;
+      right:  60%;
       opacity: 1;
       transform: scale(1) traslate(-50%, 50%);
       animation-timing-function: ease-in;
@@ -230,14 +230,13 @@ h1 {
         animation-timing-function: ease-out;
     }
     80%{
-        opacity: 0.7;
+        opacity: 30%;
     }
 
     100% {
-      bottom: 140%;
-      left: -25%;
-      opacity: 0;
-      transform: scale(0.1);
-      animation-timing-function: ease-in;
+      bottom: 100%;
+      right: -40%;
+      opacity: 0%;
+      transform: scale(0.01);
     }
   }
