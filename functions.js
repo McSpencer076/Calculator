@@ -125,6 +125,7 @@ function multiply() {
 function divide() {
     if (inputVal === "0"){
         infinityBeyond();
+        lastOperation.textContent = "INFINITY"
         return;
     }
     var result = sumVal / inputValInt;
