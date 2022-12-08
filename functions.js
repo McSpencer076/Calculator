@@ -123,9 +123,14 @@ function multiply() {
 }
 
 function divide() {
+    if (inputVal === "0"){
+        infinityBeyond();
+        return;
+    }
     var result = sumVal / inputValInt;
-    displayAnswer(result)
+    displayAnswer(result);
 }
+
 
 /* function to display answer */
 function displayAnswer(result) {
@@ -136,4 +141,19 @@ function displayAnswer(result) {
     }
     sumVal = Math.round(result * 1000) / 1000;
     newInput.textContent = inputVal = "";
+}
+
+/* weird extra functions for fun */
+
+function infinityBeyond(){
+            // Show an image moving from the center-left bottom to the center-right top
+            const imageElement = document.createElement("img");
+            imageElement.src = "IMAGES/BUZZ.png";
+            imageElement.classList.add("moving-image");
+            document.body.appendChild(imageElement);
+    
+            // Schedule the removal of the image from the page after 10 seconds
+            setTimeout(() => {
+                imageElement.remove();
+            }, 2900);
 }

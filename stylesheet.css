@@ -3,6 +3,7 @@
 body {
     background-color: rgb(255, 251, 240);
     margin: 0px;
+    overflow: hidden;
 }
 
 button {
@@ -201,3 +202,42 @@ h1 {
     color: rgba(11, 10, 10, .95);
     text-shadow: 2px 2px darkgrey;
 }
+
+
+
+
+
+/* Weird extra's */
+.moving-image {
+    position: absolute;
+    overflow: hidden;
+    animation: move-image 3s linear;
+  }
+  
+  @keyframes move-image {
+    0% {
+      bottom: -40%;
+      left: 75%;
+      opacity: 1;
+      transform: scale(1) traslate(-50%, 50%);
+      animation-timing-function: ease-in;
+    }
+
+    60%{
+        transform: scale(1) traslate(-50%, 50%);
+        opacity: 1;
+        transform: scale(0.7);
+        animation-timing-function: ease-out;
+    }
+    80%{
+        opacity: 0.7;
+    }
+
+    100% {
+      bottom: 140%;
+      left: -25%;
+      opacity: 0;
+      transform: scale(0.1);
+      animation-timing-function: ease-in;
+    }
+  }
