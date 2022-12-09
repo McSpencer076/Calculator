@@ -9,6 +9,8 @@ var decimal = document.getElementById("decimal")
 var body = document.querySelector("body");
 var header = document.querySelector(".header");
 var footer = document.querySelector(".footer");
+var enterButton = document.getElementById("equals")
+var buttons = document.querySelectorAll('.btnNumber, .btnOperator, .btnSpecials');
 
 /* variables for design */
 var headerHeight = header.offsetHeight;
@@ -153,6 +155,30 @@ function displayAnswer(result) {
     newInput.textContent = inputVal = "";
 }
 
+/* keyboard support */
+document.addEventListener('keydown', function (event) {
+    const key = event.key;
+    if (key === 'Backspace' || key === 'c' || key === "Enter") {
+        if (key === "Backspace") {
+            backspace.click();
+        }
+        else if (key === "c"){
+            resetButton.click();
+        } 
+        else if (key === "Enter"){
+            enterButton.click();
+        }    
+    }
+    else {
+        buttons.forEach(function (button) {
+            if (button.textContent === key) {
+                button.click();
+            }
+        });
+    }
+});
+
+
 /* weird extra functions for fun */
 function infinityBeyond() {
     const imageBuzz = document.createElement("img");
@@ -164,7 +190,7 @@ function infinityBeyond() {
     }, 2900);
 }
 
-function hihiTjalling(){
+function hihiTjalling() {
     const imageTjalling = document.createElement("img")
     imageTjalling.src = "IMAGES/HIHI.png"
     imageTjalling.classList.add("staticImage");
