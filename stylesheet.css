@@ -134,6 +134,7 @@ button:hover {
     animation-duration: 0.3s, 0.7s;
     animation-fill-mode: forwards;
 }
+
 @keyframes fadeOut {
     from {
         opacity: 100%;
@@ -198,7 +199,6 @@ h1 {
     font-family: 'Rajdhani', sans-serif;
     font-size: 12vh;
     transform: translate(0, -60%);
-    /* display: inline; */
     color: rgba(11, 10, 10, .95);
     text-shadow: 2px 2px darkgrey;
 }
@@ -212,31 +212,59 @@ h1 {
     position: absolute;
     overflow: hidden;
     animation: move-image 3s linear;
-  }
-  
-  @keyframes move-image {
+}
+
+@keyframes move-image {
     0% {
-      bottom: -40%;
-      right:  60%;
-      opacity: 1;
-      transform: scale(1) traslate(-50%, 50%);
-      animation-timing-function: ease-in;
+        bottom: -40%;
+        right: 60%;
+        opacity: 1;
+        transform: scale(1) traslate(-50%, 50%);
+        animation-timing-function: ease-in;
     }
 
-    60%{
+    60% {
         transform: scale(1) traslate(-50%, 50%);
         opacity: 1;
         transform: scale(0.7);
         animation-timing-function: ease-out;
     }
-    80%{
+
+    80% {
         opacity: 30%;
     }
 
     100% {
-      bottom: 100%;
-      right: -40%;
-      opacity: 0%;
-      transform: scale(0.01);
+        bottom: 100%;
+        right: -40%;
+        opacity: 0%;
+        transform: scale(0.01);
     }
-  }
+}
+
+.staticImage {
+    position: absolute;
+    overflow: hidden;
+    animation: static-image 3s linear;
+}
+
+@keyframes static-image {
+    0% {
+        bottom: -200px;
+        right: 0;
+    }
+
+    40%{
+        bottom: 0;
+        right: 0;
+    }
+    
+    80%{
+        bottom: 0;
+        right: 0;
+    }
+    100% {
+        bottom: -200px;
+        right: 0;
+    }
+}

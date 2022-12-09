@@ -112,7 +112,7 @@ function add() {
 
     //check if lol + lol = hihi
     if (sumVal == "707" && inputValInt == "707") {
-        console.log("een Tjallinkje")
+        hihiTjalling();
     }
 
     displayAnswer(result);
@@ -155,11 +155,21 @@ function displayAnswer(result) {
 
 /* weird extra functions for fun */
 function infinityBeyond() {
-    const imageElement = document.createElement("img");
-    imageElement.src = "IMAGES/BuzzText.png";
-    imageElement.classList.add("movingImage");
-    body.appendChild(imageElement);
+    const imageBuzz = document.createElement("img");
+    imageBuzz.src = "IMAGES/BuzzText.png";
+    imageBuzz.classList.add("movingImage");
+    body.appendChild(imageBuzz);
     setTimeout(() => {
-        imageElement.remove();
+        imageBuzz.remove();
+    }, 2900);
+}
+
+function hihiTjalling(){
+    const imageTjalling = document.createElement("img")
+    imageTjalling.src = "IMAGES/HIHI.png"
+    imageTjalling.classList.add("staticImage");
+    body.appendChild(imageTjalling)
+    setTimeout(() => {
+        imageTjalling.remove();
     }, 2900);
 }
